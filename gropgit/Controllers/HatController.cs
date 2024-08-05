@@ -61,7 +61,11 @@ namespace gropgit.Controllers
         // GET: HatController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            if (id == null) return RedirectToAction("IndexHat");
+            var hat = Data.Get.Hats.FirstOrDefault(f => f.HatId == id);
+            Data.Get.Hats.Remove(hat);
+            Data.Get.SaveChanges();
+            return RedirectToAction("IndexHat");
         }
 
         // POST: HatController/Delete/5
