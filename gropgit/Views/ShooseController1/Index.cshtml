@@ -39,9 +39,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.measure)
             </td>
-            <td>
+           @*  <td>
                 @Html.DisplayFor(modelItem => item.Color)
-            </td>
+            </td> *@
+                <td>
+                    <div style="background-color:@item.Color; width:60px; height:60px; "></div>
+                </td>
             <td>
                 @Html.DisplayFor(modelItem => item.brand)
             </td>
@@ -58,7 +61,7 @@
             <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.ShoeId }) |
                 @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("מחיקה", "Delete", new { id = item.ShoeId })
             </td>
         </tr>
 }

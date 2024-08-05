@@ -8,6 +8,7 @@ namespace gropgit.Controllers
     public class ShooseController1 : Controller
     {
         // GET: ShooseController1
+        //הצגת הנעליים
         public ActionResult Index()
         {
             return View(Data.Get.Shoes);
@@ -20,11 +21,12 @@ namespace gropgit.Controllers
         }
 
         // GET: ShooseController1/Create
+        //יצירת טבלת הוספה
         public ActionResult Create()
         {
             return View();
         }
-
+        //הוספת נעל
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Shoe shoe)
@@ -35,6 +37,17 @@ namespace gropgit.Controllers
             return RedirectToAction("Index");
             
         }
+        //מחיקת נעל
+        public ActionResult Delete(int id)
+        {
+            if (id == null) return RedirectToAction("Index");
+            var liberyy = Data.Get.Shoes.FirstOrDefault(f => f.ShoeId == id);
+            Data.Get.Shoes.Remove(liberyy);
+            Data.Get.SaveChanges();
+            return RedirectToAction("Index");
+           
+        }
+
 
         // POST: ShooseController1/Create
         //[HttpPost]
@@ -73,11 +86,7 @@ namespace gropgit.Controllers
         }
 
         // GET: ShooseController1/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
+       
         // POST: ShooseController1/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]

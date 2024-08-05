@@ -18,7 +18,7 @@ namespace gropgit.DAL
         {
             if (!Shoes.Any())
             {
-            Shoe shoe =new Shoe { measure= 54, Color= "שחור", brand= "נייק", Image= "https://www.jdsports.co.il/cdn/shop/products/jd_FV5951-001_a_1000x.jpg?v=1710057777" };
+            Shoe shoe =new Shoe { measure= 54, Color= "#000000", brand= "נייק", Image= "https://www.jdsports.co.il/cdn/shop/products/jd_FV5951-001_a_1000x.jpg?v=1710057777" };
             Shoes.Add(shoe);
             }
             if (!Hats.Any())
