@@ -27,7 +27,7 @@ namespace gropgit.Models
         //    brand = brand;
         //    Image = Image;
         //}
-
+        
 
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using gropgit.DAL;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace gropgit.Controllers
@@ -6,9 +7,9 @@ namespace gropgit.Controllers
     public class HatController : Controller
     {
         // GET: HatController
-        public ActionResult Index()
+        public ActionResult IndexHat()
         {
-            return View();
+            return View(Data.Get.Hats);
         }
 
         // GET: HatController/Details/5

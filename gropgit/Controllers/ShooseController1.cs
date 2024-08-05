@@ -1,4 +1,5 @@
 ﻿using gropgit.DAL;
+using gropgit.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -24,20 +25,31 @@ namespace gropgit.Controllers
             return View();
         }
 
-        // POST: ShooseController1/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(Shoe shoe)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            if (shoe == null) return RedirectToAction("Create");
+            Data.Get.Shoes.Add(shoe);
+            Data.Get.SaveChanges();
+            return RedirectToAction("Index");
+            
         }
+
+        // POST: ShooseController1/Create
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Create(IFormCollection collection)
+        //{
+        //    try
+        //    {
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
 
         // GET: ShooseController1/Edit/5
         public ActionResult Edit(int id)
