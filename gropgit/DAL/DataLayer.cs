@@ -1,6 +1,9 @@
 ﻿using gropgit.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using static System.Net.WebRequestMethods;
 
 namespace gropgit.DAL
 {
@@ -9,13 +12,13 @@ namespace gropgit.DAL
         public DataLayer(string ConnectionString) : base(GetOptions(ConnectionString))
         {
             Database.EnsureCreated();
-            Seed(54,"שחור","נייק","https://www.jdsports.co.il/cdn/shop/products/jd_FV5951-001_a_1000x.jpg?v=1710057777");
+            Seed();
         }
-        private void Seed(int measure,string Color,string brand ,string Image)
+        private void Seed()
         {
             if (Shoes.Any()) return;
-            Shoe library = new Shoe { measure = measure , Color = Color , brand = brand , Image = Image };
-            Shoes.Add(library);
+            Shoe shoe =new Shoe { measure= 54, Color= "שחור", brand= "נייק", Image= "https://www.jdsports.co.il/cdn/shop/products/jd_FV5951-001_a_1000x.jpg?v=1710057777" };
+            Shoes.Add(shoe);
             SaveChanges();
         }
         private static DbContextOptions GetOptions(string ConnectionString)

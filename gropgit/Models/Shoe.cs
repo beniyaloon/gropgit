@@ -18,7 +18,15 @@ namespace gropgit.Models
         public string brand { get; set; }
 
         [Display(Name = "תמונה")]
-        public string Image { get; set; }= string.Empty;
+        public string Image { get; set; }
+
+        //public Shoe(int measure,string Color,string brand, string Image)
+        //{
+        //    measure = measure;
+        //    Color = Color;
+        //    brand = brand;
+        //    Image = Image;
+        //}
 
 
     }
