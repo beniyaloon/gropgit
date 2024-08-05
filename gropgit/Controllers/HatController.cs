@@ -1,4 +1,5 @@
 ﻿using gropgit.DAL;
+using gropgit.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -27,16 +28,13 @@ namespace gropgit.Controllers
         // POST: HatController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(Hat hat)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            if (hat == null) return RedirectToAction("Create");
+            Data.Get.Hats.Add(hat);
+            Data.Get.SaveChanges();
+            return RedirectToAction("IndexHat");
+        
         }
 
         // GET: HatController/Edit/5

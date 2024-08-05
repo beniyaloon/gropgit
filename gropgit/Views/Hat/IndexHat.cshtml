@@ -7,7 +7,7 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">הוספת כובע</a>
 </p>
 <table class="table">
     <thead>
@@ -45,9 +45,11 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Hatbrand)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HatImage)
-            </td>
+                <td>
+                    <img src=@item.HatImage alt="Alternate text" width="60" />
+
+
+                </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |

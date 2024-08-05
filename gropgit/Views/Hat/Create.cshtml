@@ -1,0 +1,49 @@
+﻿@model gropgit.Models.Hat
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>הוספת כבוע</h1>
+
+<h4>הכובע</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Hatmeasure" class="control-label"></label>
+                <input asp-for="Hatmeasure" class="form-control" />
+                <span asp-validation-for="Hatmeasure" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HatColor" class="control-label"></label>
+                <input asp-for="HatColor" class="form-control" />
+                <span asp-validation-for="HatColor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Hatbrand" class="control-label"></label>
+                <input asp-for="Hatbrand" class="form-control" />
+                <span asp-validation-for="Hatbrand" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HatImage" class="control-label"></label>
+                <input asp-for="HatImage" class="form-control" />
+                <span asp-validation-for="HatImage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
