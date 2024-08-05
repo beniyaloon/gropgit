@@ -1,0 +1,65 @@
+﻿@model IEnumerable<gropgit.Models.Shoe>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>רשימת הנעליים</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ShoeId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.measure)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Color)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.brand)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShoeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.measure)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Color)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.brand)
+            </td>
+           @*  <td>
+                @Html.DisplayFor(modelItem => item.Image)
+              
+            </td *@>
+                <td>
+                    <img src="#" alt="Alternate Text" />
+
+                </td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

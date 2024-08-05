@@ -9,15 +9,15 @@ namespace gropgit.DAL
         public DataLayer(string ConnectionString) : base(GetOptions(ConnectionString))
         {
             Database.EnsureCreated();
-            //Seed("גמרא");
+            Seed(54,"שחור","נייק","https://www.jdsports.co.il/cdn/shop/products/jd_FV5951-001_a_1000x.jpg?v=1710057777");
         }
-        //private void Seed(string Genre)
-        //{
-        //    if (librariess.Any()) return;
-        //    Library library = new Library { Genre = Genre };
-        //    librariess.Add(library);
-        //    SaveChanges();
-        //}
+        private void Seed(int measure,string Color,string brand ,string Image)
+        {
+            if (Shoes.Any()) return;
+            Shoe library = new Shoe { measure = measure , Color = Color , brand = brand , Image = Image };
+            Shoes.Add(library);
+            SaveChanges();
+        }
         private static DbContextOptions GetOptions(string ConnectionString)
         {
             return new DbContextOptionsBuilder().UseSqlServer(ConnectionString).Options;
